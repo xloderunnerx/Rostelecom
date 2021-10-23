@@ -53,7 +53,9 @@ public class WayPointController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        foreach (var modifier in MeshModifiers) {
+            modifier.Initialize();
+        }
     }
 
     // Update is called once per frame
