@@ -27,24 +27,12 @@ public class WayPointController : MonoBehaviour {
     [SerializeField]
     Material _material;
 
-    [SerializeField]
-    Transform[] _waypoints;
-    private List<Vector3> _cachedWaypoints;
-
-    [SerializeField]
-    [Range(1, 10)]
-    private float UpdateFrequency = 2;
-
     private Directions _directions;
     private int _counter;
 
     GameObject _directionsGO;
-    private bool _recalculateNext;
-    private List<OnMapWaypoint> generatedWayPoints;
-    private GameObject kolbaska;
     private DirectionsResponse latest;
     private void Awake() {
-        generatedWayPoints = new List<OnMapWaypoint>();
         if (_map == null) {
             _map = FindObjectOfType<AbstractMap>();
         }
@@ -69,24 +57,10 @@ public class WayPointController : MonoBehaviour {
 
     public void generateRoutes() {
 
-        generatedWayPoints = new List<OnMapWaypoint>();
         var list = new List<Vector2d>();
 
         var firstValue = inputA.SelectedFeature.Geometry.Coordinates;
         var secondValue = inputB.SelectedFeature.Geometry.Coordinates;
-
-        var wayPointFirst = new GameObject("Waypoint");
-        var wayPointSecond = new GameObject("Waypoint");
-
-        var onMapFirst = wayPointFirst.AddComponent<OnMapWaypoint>();
-        var onMapSecond = wayPointSecond.AddComponent<OnMapWaypoint>();
-
-        onMapFirst.feature = inputA.SelectedFeature;
-        onMapSecond.feature = inputB.SelectedFeature;
-        onMapFirst.map = _map;
-        onMapSecond.map = _map;
-        generatedWayPoints.Add(onMapFirst);
-        generatedWayPoints.Add(onMapSecond);
 
         list.Add(firstValue);
         list.Add(secondValue);
@@ -148,20 +122,4 @@ public class WayPointController : MonoBehaviour {
         return _directionsGO;
     }
 
-}
-
-public class OnMapWaypoint : MonoBehaviour {
-    public Feature feature;
-    public AbstractMap map;
-
-    private void Start() {
-        Convert();
-    }
-
-    private void Update() {
-        Convert();
-    }
-    public void Convert() {
-        transform.position = map.GeoToWorldPosition(feature.Geometry.Coordinates);
-    }
 }
