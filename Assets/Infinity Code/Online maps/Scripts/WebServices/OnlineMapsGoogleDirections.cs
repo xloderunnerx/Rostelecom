@@ -47,6 +47,22 @@ public class OnlineMapsGoogleDirections : OnlineMapsTextWebService
         };
     }
 
+    public OnlineMapsGoogleDirections(string key, object origin, object destination, Mode mode) {
+        requestParams = new Params(origin, destination) {
+            key = key,
+            mode = mode
+        };
+    }
+
+    public OnlineMapsGoogleDirections(string key, object origin, object destination, List<Vector2> waypoints, Mode mode) {
+        IEnumerable resultWaypoints = waypoints.Select(w => (object)w);
+        requestParams = new Params(origin, destination) {
+            key = key,
+            waypoints = resultWaypoints,
+            mode = mode
+        };
+    }
+
     private OnlineMapsGoogleDirections(Params p)
     {
         requestParams = p;

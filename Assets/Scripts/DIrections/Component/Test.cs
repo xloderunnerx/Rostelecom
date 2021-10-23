@@ -14,7 +14,7 @@ namespace Map.Directions.Component {
             waypoints.Add(new Vector2(55.736389f, 37.621875f));
             waypoints.Add(new Vector2(55.188834f, 37.055712f));
             waypoints.Add(new Vector2(55.105873f, 36.605876f));
-            GetComponent<Directions>().StartSearchMultiCoords(waypoints, (r) => {
+            GetComponent<Directions>().StartSearchMultiCoords(waypoints, OnlineMapsGoogleDirections.Mode.walking, (r) => {
 
                 foreach (OnlineMapsGoogleDirectionsResult.Leg leg in r.routes[0].legs) {
                     foreach (OnlineMapsGoogleDirectionsResult.Step step in leg.steps) {

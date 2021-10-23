@@ -8,13 +8,14 @@ namespace Map.Directions.Component {
     public class Directions : MonoBehaviour {
         [SerializeField] private string apiKey;
 
-        public void StartSearchCoords(Vector2 start, Vector2 end, Action<OnlineMapsGoogleDirectionsResult> onComplete) {
+        public void StartSearchCoords(Vector2 start, Vector2 end, OnlineMapsGoogleDirections.Mode mode, Action<OnlineMapsGoogleDirectionsResult> onComplete) {
             if (string.IsNullOrEmpty(apiKey)) Debug.LogWarning("Please specify Google API Key");
             OnlineMapsGoogleDirections request = new OnlineMapsGoogleDirections
             (
                 apiKey,
                 start,
-                end
+                end,
+                mode
             );
             request.OnComplete += (s) => {
                 onComplete?.Invoke(OnFind(s));
@@ -22,13 +23,14 @@ namespace Map.Directions.Component {
             request.Send();
         }
 
-        public void StartSearchNames(string nameStart, string nameEnd, Action<OnlineMapsGoogleDirectionsResult> onComplete) {
+        public void StartSearchNames(string nameStart, string nameEnd, OnlineMapsGoogleDirections.Mode mode, Action<OnlineMapsGoogleDirectionsResult> onComplete) {
             if (string.IsNullOrEmpty(apiKey)) Debug.LogWarning("Please specify Google API Key");
             OnlineMapsGoogleDirections request = new OnlineMapsGoogleDirections
             (
                 apiKey,
                 nameStart,
-                nameEnd
+                nameEnd,
+                mode
             );
             request.OnComplete += (s) => {
                 onComplete?.Invoke(OnFind(s));
@@ -36,7 +38,7 @@ namespace Map.Directions.Component {
             request.Send();
         }
 
-        public void StartSearchMultiCoords(List<Vector2> startWaypointsEnd, Action<OnlineMapsGoogleDirectionsResult> onComplete) {
+        public void StartSearchMultiCoords(List<Vector2> startWaypointsEnd, OnlineMapsGoogleDirections.Mode mode, Action<OnlineMapsGoogleDirectionsResult> onComplete) {
             if (string.IsNullOrEmpty(apiKey)) Debug.LogWarning("Please specify Google API Key");
             for(int i = 0; i < startWaypointsEnd.Count; i++) {
                 var oldX = startWaypointsEnd[i].x;
@@ -49,7 +51,8 @@ namespace Map.Directions.Component {
                 apiKey,
                 startWaypointsEnd.FirstOrDefault(),
                 startWaypointsEnd.LastOrDefault(),
-                waypoints
+                waypoints,
+                mode
             );
             request.OnComplete += (s) => {
                 onComplete?.Invoke(OnFind(s));
