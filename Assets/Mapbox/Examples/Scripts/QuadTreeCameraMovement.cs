@@ -46,9 +46,34 @@
 			};
 		}
 
+
+		
+
+		public float dragSpeed = 2;
+		private Vector3 dragOrigin;
+
+
+		void LateUpdate() {
+			if (Input.GetMouseButtonDown(0)) {
+				dragOrigin = Input.mousePosition;
+				return;
+			}
+
+			if (!Input.GetMouseButton(0)) return;
+
+			Vector3 pos = _referenceCamera.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
+			Vector3 move = new Vector3(pos.x * dragSpeed, 0, pos.y * dragSpeed);
+
+			_referenceCamera. transform.Translate(move, Space.World);
+		}
+
 		public void Update()
 		{
-			if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject())
+			float scrollDelta = 0.0f;
+			scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+			ZoomMapUsingTouchOrMouse(scrollDelta);
+
+			/*if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject())
 			{
 				_dragStartedOnUI = true;
 			}
@@ -56,11 +81,11 @@
 			if (Input.GetMouseButtonUp(0))
 			{
 				_dragStartedOnUI = false;
-			}
+			}*/
 		}
 
 
-		private void LateUpdate()
+		/*private void LateUpdate()
 		{
 			if (!_isInitialized) { return; }
 
@@ -75,14 +100,12 @@
 					HandleMouseAndKeyBoard();
 				}
 			}
-		}
+		}*/
 
 		void HandleMouseAndKeyBoard()
 		{
 			// zoom
-			float scrollDelta = 0.0f;
-			scrollDelta = Input.GetAxis("Mouse ScrollWheel");
-			ZoomMapUsingTouchOrMouse(scrollDelta);
+			
 
 
 			//pan keyboard
