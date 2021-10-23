@@ -16,6 +16,8 @@ namespace Map.Geocoder.Component {
         [SerializeField] private Feature selectedFeature;
         private bool selected;
 
+        public Feature SelectedFeature { get => selectedFeature; set => selectedFeature = value; }
+
         private void Awake() {
             rectTransform = GetComponent<RectTransform>();
             geocoderResponseItems = new List<GeocoderResponseItem>();
@@ -72,7 +74,7 @@ namespace Map.Geocoder.Component {
             selected = true;
             placeName.text = feature.PlaceName + " " + feature.Address;
             ClearAndDestroy();
-            selectedFeature = feature;
+            SelectedFeature = feature;
         }
 
         public void ClearAndDestroy() {

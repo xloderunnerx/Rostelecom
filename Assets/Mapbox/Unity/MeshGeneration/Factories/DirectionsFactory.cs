@@ -29,8 +29,6 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 		[Range(1,10)]
 		private float UpdateFrequency = 2;
 
-
-
 		private Directions _directions;
 		private int _counter;
 
@@ -131,8 +129,7 @@ namespace Mapbox.Unity.MeshGeneration.Factories
 			CreateGameObject(meshData);
 		}
 
-		GameObject CreateGameObject(MeshData data)
-		{
+		GameObject CreateGameObject(MeshData data) {
 			if (_directionsGO != null)
 			{
 				_directionsGO.Destroy();
