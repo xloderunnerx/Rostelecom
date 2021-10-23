@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 74f8264ffa206584dbb34447eedd5a28
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Rostelecom Basis
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 50ec344aa3348d645a9daed5e2b1e95a, type: 3}
+  - {fileID: 12800000, guid: f3545530ed305324b9d7c3ed0cdc3cf8, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
