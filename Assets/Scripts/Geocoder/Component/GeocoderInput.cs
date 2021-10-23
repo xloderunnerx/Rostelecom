@@ -74,7 +74,10 @@ namespace Map.Geocoder.Component {
             selected = true;
             placeName.text = feature.PlaceName + " " + feature.Address;
             ClearAndDestroy();
+
             SelectedFeature = feature;
+
+            Debug.Log("X= " + feature.Geometry.Coordinates.x + "; " + "Y= " + feature.Geometry.Coordinates.y);
         }
 
         public void ClearAndDestroy() {
