@@ -172,6 +172,8 @@ namespace Mapbox.Geocoding
 				opts.Add("types", GetUrlQueryFromArray(this.Types));
 			}
 
+			Debug.Log(opts["types"]);
+
 			// !!!!!!!!!! HACK !!!!!!!
 			// we are seeing super weird behaviour on some iOS devices:
 			// crashes with properly escaped whitespaces %20 and commas %2C - and other special characters
