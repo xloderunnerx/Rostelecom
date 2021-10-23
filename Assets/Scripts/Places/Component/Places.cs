@@ -20,8 +20,8 @@ namespace Map.Places.Component {
             OnlineMapsGooglePlaces.FindNearby(
                 apiKey,
                 new OnlineMapsGooglePlaces.NearbyParams(
-                    longitude,
                     latitude,
+                    longitude,
                     radius)
                 {
                     types = allTypes

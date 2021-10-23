@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -33,7 +35,15 @@ public class OnlineMapsGoogleDirections : OnlineMapsTextWebService
     {
         requestParams = new Params(origin, destination)
         {
-            key = key
+            key = key,
+        };
+    }
+
+    public OnlineMapsGoogleDirections(string key, object origin, object destination, List<Vector2> waypoints) {
+        IEnumerable resultWaypoints = waypoints.Select(w => (object)w);
+        requestParams = new Params(origin, destination) {
+            key = key,
+            waypoints = resultWaypoints
         };
     }
 
@@ -146,6 +156,7 @@ public class OnlineMapsGoogleDirections : OnlineMapsTextWebService
         if (p.traffic_model.HasValue && p.traffic_model.Value != TrafficModel.bestGuess) url.Append("&traffic_model=").Append(Enum.GetName(typeof(TrafficModel), p.traffic_model.Value));
         if (p.transit_mode.HasValue) OnlineMapsUtils.GetValuesFromEnum(url, "transit_mode", typeof(TransitMode), (int)p.transit_mode.Value);
         if (p.transit_routing_preference.HasValue) url.Append("&transit_routing_preference=").Append(Enum.GetName(typeof(TransitRoutingPreference), p.transit_routing_preference.Value));
+        Debug.Log(url);
         www = new OnlineMapsWWW(url);
         www.OnComplete += OnRequestComplete;
     }
