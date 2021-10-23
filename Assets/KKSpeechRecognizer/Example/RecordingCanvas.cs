@@ -2,11 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 using KKSpeech;
+using TMPro;
 
 public class RecordingCanvas : MonoBehaviour {
 
 	public Button startRecordingButton;
-	public Text resultText;
+	public TextMeshProUGUI resultText;
 
 	void Start() {
 		if (SpeechRecognizer.ExistsOnDevice()) {
