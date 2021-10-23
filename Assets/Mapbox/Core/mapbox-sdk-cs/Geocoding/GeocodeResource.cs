@@ -8,7 +8,8 @@ namespace Mapbox.Geocoding
 {
 	using System;
 	using System.Collections.Generic;
-	using Mapbox.Platform;
+    using System.Linq;
+    using Mapbox.Platform;
 
 	/// <summary> Base geocode class. </summary>
 	/// <typeparam name="T"> Type of Query field (either string or LatLng). </typeparam>
@@ -47,10 +48,14 @@ namespace Mapbox.Geocoding
 		/// <summary> Gets or sets which feature types to return results for. </summary>
 		public string[] Types {
 			get {
+				/*UnityEngine.Debug.Log(types);
+				types.ToList().ForEach(t => UnityEngine.Debug.Log(t));*/
 				return this.types;
 			}
 
 			set {
+				
+				
 				if (value == null)
 				{
 					this.types = value;

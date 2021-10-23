@@ -1,7 +1,9 @@
 using Mapbox.Geocoding;
+using Mapbox.MapMatching;
 using Mapbox.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -67,6 +69,7 @@ namespace Map.Geocoder.Component {
                 geocoderResponseItemGameObject.transform.SetParent(transform, false);
                 geocoderResponseItem.Init(features[i], this);
                 geocoderResponseItems.Add(geocoderResponseItem);
+                
             }
         }
 

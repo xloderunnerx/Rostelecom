@@ -7,7 +7,8 @@
 namespace Mapbox.Geocoding
 {
 	using System;
-	using System.Text;
+    using System.Diagnostics;
+    using System.Text;
 	using Mapbox.Json;
 	using Mapbox.Platform;
 	using Mapbox.Utils.JsonConverters;
@@ -38,10 +39,12 @@ namespace Mapbox.Geocoding
 		/// </returns>
 		public IAsyncRequest Geocode<T>(GeocodeResource<T> geocode, Action<ReverseGeocodeResponse> callback)
 		{
+			
 			return this.fileSource.Request(
 				geocode.GetUrl(),
 				(Response response) =>
 				{
+					UnityEngine.Debug.Log(geocode.GetUrl());
 					var str = Encoding.UTF8.GetString(response.Data);
 
 					var data = Deserialize<ReverseGeocodeResponse>(str);
@@ -66,7 +69,6 @@ namespace Mapbox.Geocoding
 				(Response response) =>
 				{
 					var str = Encoding.UTF8.GetString(response.Data);
-
 					var data = Deserialize<ForwardGeocodeResponse>(str);
 
 					callback(data);

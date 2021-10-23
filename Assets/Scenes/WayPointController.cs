@@ -31,8 +31,12 @@ public class WayPointController : MonoBehaviour {
     private int _counter;
 
     GameObject _directionsGO;
-    private DirectionsResponse latest;
+    private DirectionsResponse latestResponse;
+
+    public List<Vector3> intermediateWayPoints;
+
     private void Awake() {
+        intermediateWayPoints = new List<Vector3>();
         if (_map == null) {
             _map = FindObjectOfType<AbstractMap>();
         }
@@ -49,9 +53,9 @@ public class WayPointController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if(latest != null) {
+        if (latestResponse != null) {
 
-            HandleDirectionsResponse(latest);
+            HandleDirectionsResponse(latestResponse);
         }
     }
 
@@ -79,7 +83,8 @@ public class WayPointController : MonoBehaviour {
         if (response == null || null == response.Routes || response.Routes.Count < 1) {
             return;
         }
-        latest = response;
+        latestResponse = response;
+        GenerateIntermediateWayPoints();
         var meshData = new MeshData();
         var dat = new List<Vector3>();
         foreach (var point in response.Routes[0].Geometry) {
@@ -120,6 +125,21 @@ public class WayPointController : MonoBehaviour {
         mesh.RecalculateNormals();
         _directionsGO.AddComponent<MeshRenderer>().material = _material;
         return _directionsGO;
+    }
+
+    public void GenerateIntermediateWayPoints() {
+        if (intermediateWayPoints.Count != 0)
+            return;
+        latestResponse.Waypoints.ForEach(w => intermediateWayPoints.Add(_map.GeoToWorldPosition(w.Location)));
+        latestResponse.Routes.ForEach(r => {
+            Debug.Log("Distance = " + r.Distance);
+            r.Geometry.ForEach(v => {
+                var wayPointGameObject = new GameObject("waypoint");
+                wayPointGameObject.transform.position = _map.GeoToWorldPosition(v);
+            });
+            
+        });
+
     }
 
 }
