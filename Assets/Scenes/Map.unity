@@ -1575,12 +1575,12 @@ MonoBehaviour:
   _initializeOnStart: 1
   _imagery:
     _layerProperty:
-      sourceType: 0
+      sourceType: 6
       sourceOptions:
         isActive: 1
         layerSource:
           Name: Streets
-          Id: mapbox://styles/mapbox/streets-v10
+          Id: mapbox://styles/lxderunner/ckv2uibmd43o614o8oozxnbb9
           Modified: 
           UserName: 
       rasterOptions:
@@ -2693,8 +2693,6 @@ MonoBehaviour:
   MeshModifiers:
   - {fileID: 11400000, guid: 72a54fd58e79618408c60d91df61d553, type: 2}
   _material: {fileID: 2100000, guid: 49b5d148287c83443bd632e6d5b5bd6f, type: 2}
-  _waypoints: []
-  UpdateFrequency: 2
 --- !u!4 &1996691528
 Transform:
   m_ObjectHideFlags: 0
