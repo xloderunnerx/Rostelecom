@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb581a43b4112d0469008a7c583ec897, type: 3}
   m_Name: JourneySettings
   m_EditorClassIdentifier: 
-  startName: 
-  endName: 
   mode: 0
-  pointsOfInterest: []
+  pointsOfInterest:
+  - food
+  - gym
+  - health

@@ -15,6 +15,8 @@ namespace Map.SmartPrediction.Component {
         private bool selected;
         private RectTransform rectTransform;
         public OnlineMapsGooglePlacesAutocompleteResult selectedOnlineMapsGooglePlacesAutocompleteResult;
+        public bool from;
+        [SerializeField] private JourneySettings journeySettings;
 
         private void Awake() {
             rectTransform = GetComponent<RectTransform>();
@@ -62,6 +64,9 @@ namespace Map.SmartPrediction.Component {
 
 
         public void SelectPlace(OnlineMapsGooglePlacesAutocompleteResult place) {
+            if (from)
+                journeySettings.startPlace = place;
+            else journeySettings.endPlace = place;
             selected = true;
             input.text = place.description;
             ClearAndDestroy();

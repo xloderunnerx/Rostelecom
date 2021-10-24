@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "JourneySettings", menuName = "SO/Jouney/JourneySettings")]
 public class JourneySettings : ScriptableObject
 {
-    public string startName;
-    public string endName;
+    public OnlineMapsGooglePlacesAutocompleteResult startPlace;
+    public OnlineMapsGooglePlacesAutocompleteResult endPlace;
     public OnlineMapsGoogleDirections.Mode mode;
     public List<string> pointsOfInterest;
 }

@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 17767186}
   - component: {fileID: 17767187}
+  - component: {fileID: 17767188}
   m_Layer: 5
   m_Name: Toggle (1)
   m_TagString: Untagged
@@ -206,8 +207,34 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 17767188}
+        m_TargetAssemblyTypeName: UI.Component.HowItem, Assembly-CSharp
+        m_MethodName: SetJourneyMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
+--- !u!114 &17767188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17767185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9cf50613cd2743891dbab217386a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 3
+  journeySettings: {fileID: 11400000, guid: 585b3456870d1824384ceb6ec7293fbb, type: 2}
 --- !u!1 &19051481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2868,6 +2895,8 @@ MonoBehaviour:
   smartSearchItemPrefab: {fileID: 3395403473438717437, guid: 962366dc248fd6d479415ad707c9195c, type: 3}
   smartSearchPrediction: {fileID: 24375200}
   input: {fileID: 465673120}
+  from: 0
+  journeySettings: {fileID: 11400000, guid: 585b3456870d1824384ceb6ec7293fbb, type: 2}
 --- !u!222 &465673122
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3265,6 +3294,7 @@ GameObject:
   - component: {fileID: 527916581}
   - component: {fileID: 527916580}
   - component: {fileID: 527916579}
+  - component: {fileID: 527916582}
   m_Layer: 5
   m_Name: continueButton
   m_TagString: Untagged
@@ -3334,7 +3364,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 527916580}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 527916582}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &527916580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3373,6 +3415,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527916577}
   m_CullTransparentMesh: 1
+--- !u!114 &527916582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527916577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07ac67aa4f48eb647bbadfd3bd3f1708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneNumber: 1
 --- !u!1 &552101537
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,6 +5239,8 @@ MonoBehaviour:
   smartSearchItemPrefab: {fileID: 3395403473438717437, guid: 962366dc248fd6d479415ad707c9195c, type: 3}
   smartSearchPrediction: {fileID: 24375200}
   input: {fileID: 834287692}
+  from: 1
+  journeySettings: {fileID: 11400000, guid: 585b3456870d1824384ceb6ec7293fbb, type: 2}
 --- !u!222 &834287694
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5377,6 +5434,7 @@ GameObject:
   m_Component:
   - component: {fileID: 897677440}
   - component: {fileID: 897677441}
+  - component: {fileID: 897677442}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -5450,8 +5508,34 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 897677442}
+        m_TargetAssemblyTypeName: UI.Component.HowItem, Assembly-CSharp
+        m_MethodName: SetJourneyMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
+--- !u!114 &897677442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897677439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9cf50613cd2743891dbab217386a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  journeySettings: {fileID: 11400000, guid: 585b3456870d1824384ceb6ec7293fbb, type: 2}
 --- !u!1 &914242798
 GameObject:
   m_ObjectHideFlags: 0
@@ -7968,6 +8052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293215946}
   - component: {fileID: 1293215947}
+  - component: {fileID: 1293215948}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -8041,8 +8126,34 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1293215948}
+        m_TargetAssemblyTypeName: UI.Component.HowItem, Assembly-CSharp
+        m_MethodName: SetJourneyMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1293215948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293215945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9cf50613cd2743891dbab217386a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 3
+  journeySettings: {fileID: 11400000, guid: 585b3456870d1824384ceb6ec7293fbb, type: 2}
 --- !u!1 &1295508809
 GameObject:
   m_ObjectHideFlags: 0
@@ -8053,6 +8164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1295508810}
   - component: {fileID: 1295508811}
+  - component: {fileID: 1295508812}
   m_Layer: 5
   m_Name: Toggle (1)
   m_TagString: Untagged
@@ -8126,8 +8238,34 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1295508812}
+        m_TargetAssemblyTypeName: UI.Component.HowItem, Assembly-CSharp
+        m_MethodName: SetJourneyMode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1295508812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295508809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ee9cf50613cd2743891dbab217386a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  journeySettings: {fileID: 11400000, guid: 585b3456870d1824384ceb6ec7293fbb, type: 2}
 --- !u!1 &1295692456
 GameObject:
   m_ObjectHideFlags: 0
