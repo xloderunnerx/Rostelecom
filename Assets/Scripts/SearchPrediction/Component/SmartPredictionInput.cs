@@ -44,7 +44,7 @@ namespace Map.SmartPrediction.Component {
         public void OnPredictionComplete(OnlineMapsGooglePlacesAutocompleteResult[] places) {
             GenerateGeocoderResponsItems(places);
             foreach (OnlineMapsGooglePlacesAutocompleteResult result in places) {
-                Debug.Log(result.description);
+                //Debug.Log(result.description);
             }
         }
 
