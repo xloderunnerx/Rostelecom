@@ -29,7 +29,7 @@ public class OnlineMapsGooglePlaces: OnlineMapsTextWebService
         url.AppendFormat("https://maps.googleapis.com/maps/api/place/{0}/xml?sensor=false", p.typePath);
         if (!string.IsNullOrEmpty(key)) url.Append("&key=").Append(key);
         p.AppendParams(url);
-
+        Debug.Log(url);
         www = new OnlineMapsWWW(url);
         www.OnComplete += OnRequestComplete;
     }

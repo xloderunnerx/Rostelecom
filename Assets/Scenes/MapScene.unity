@@ -271,6 +271,7 @@ MonoBehaviour:
   places: {fileID: 1192107338}
   smartSearchPrediction: {fileID: 2095621993}
   placeDetails: {fileID: 1192107340}
+  routs: []
 --- !u!1 &629836324
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1010,7 @@ MonoBehaviour:
   useSoftwareJPEGDecoder: 0
   width: 512
   _activeTypeSettings: 
-  _zoom: 8.53
+  _zoom: 4.64
   latitude: 0
   longitude: 0
 --- !u!4 &1377192107
